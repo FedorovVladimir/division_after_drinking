@@ -24,7 +24,7 @@ struct ContentView: View {
             List {
                 Section(header: Text("Чек")) {
                     ForEach(outcomes, id: \.id) { item in
-                        OutcomeView(outcome: item)
+                        OutcomeView(outcome: item, payers: payers)
                     }
                             .listStyle(.sidebar)
                     Button(action: {}) {

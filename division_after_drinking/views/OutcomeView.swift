@@ -9,20 +9,28 @@ import SwiftUI
 
 struct OutcomeView: View {
     var outcome: Outcome
+    var payers: [Payer]
 
     var body: some View {
         GeometryReader { geo in
             HStack(spacing: 0.0) {
                 Text(outcome.name)
                         .frame(
-                                width: geo.size.width * 0.7,
+                                width: geo.size.width - 100,
                                 alignment: .leading)
                         .padding(.vertical, 5)
-                Text(outcome.getLabelText())
-                        .frame(
-                                width: geo.size.width * 0.3,
-                                alignment: .trailing)
-                        .padding(.vertical, 5)
+                let labelText = outcome.getLabelText(payers: payers)
+                let labelColor: Color = outcome.isAlcohol ? Color.yellow : Color.green
+                if (labelText != "") {
+                    Text(labelText)
+                            .foregroundColor(Color.black)
+                            .frame(
+                                    width: 100,
+                                    alignment: .center)
+                            .padding(.vertical, 2)
+                            .background(labelColor)
+                            .cornerRadius(15)
+                }
             }
         }
     }
@@ -31,9 +39,9 @@ struct OutcomeView: View {
 struct OutcomeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            OutcomeView(outcome: outcomes[0])
-            OutcomeView(outcome: outcomes[1])
-            OutcomeView(outcome: outcomes[2])
+            OutcomeView(outcome: outcomes[0], payers: payers)
+            OutcomeView(outcome: outcomes[1], payers: payers)
+            OutcomeView(outcome: outcomes[2], payers: payers)
         }
                 .previewLayout(.fixed(width: 300, height: 100))
     }
