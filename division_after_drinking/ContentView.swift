@@ -9,13 +9,36 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        HStack(spacing: 0) {
+            List {
+                Section(header: Text("Участники попоя")) {
+                    ForEach(payers, id: \.id) { item in
+                        Text(item.name)
+                    }
+                            .listStyle(.sidebar)
+                    Button(action: {}) {
+                        Text("Добавить")
+                    }
+                }
+            }
+            List {
+                Section(header: Text("Чек")) {
+                    ForEach(outcomes, id: \.id) { item in
+                        OutcomeView(outcome: item)
+                    }
+                            .listStyle(.sidebar)
+                    Button(action: {}) {
+                        Text("Добавить")
+                    }
+                }
+            }
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+                .previewInterfaceOrientation(.landscapeLeft)
     }
 }
