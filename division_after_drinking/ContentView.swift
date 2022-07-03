@@ -30,7 +30,7 @@ struct ContentView: View {
                         Text("Добавить")
                     }
                             .sheet(isPresented: self.$showAddPayerModal) {
-                                Text("Скоро все будет")
+                                AddPayerModalView()
 //                                payersModel.payers.append(Payer(id: 1, name: "Вован"))
                             }
                 }

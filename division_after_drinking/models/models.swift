@@ -16,18 +16,22 @@ struct Outcome: Hashable, Codable {
     var id: Int
     var name: String
     var isAlcohol: Bool
+    var isMeat: Bool
     var payerID: Int?
 
     func getLabelText(payers: [Payer]) -> String {
-        if isAlcohol {
-            return "Алкоголь"
-        }
         if payerID != nil {
             for payer in payers {
                 if payer.id == payerID {
                     return payer.name
                 }
             }
+        }
+        if isAlcohol {
+            return "Алкоголь"
+        }
+        if isMeat {
+            return "Мясо"
         }
         return ""
     }

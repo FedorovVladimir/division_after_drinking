@@ -20,7 +20,7 @@ struct OutcomeView: View {
                                 alignment: .leading)
                         .padding(.vertical, 5)
                 let labelText = outcome.getLabelText(payers: payers)
-                let labelColor: Color = outcome.isAlcohol ? Color.yellow : Color.green
+                let labelColor: Color = outcome.payerID != nil ? Color.yellow : Color.green
                 if (labelText != "") {
                     Text(labelText)
                             .foregroundColor(Color.black)
