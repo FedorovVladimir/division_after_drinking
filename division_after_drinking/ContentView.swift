@@ -7,18 +7,32 @@
 
 import SwiftUI
 
+class PayersModel: ObservableObject {
+    @Published var payers: [Payer] = []
+}
+
 struct ContentView: View {
+    @StateObject var payersModel = PayersModel()
+    @State private var showAddPayerModal: Bool = false
+    @State private var showAddOutcomeModal: Bool = false
+
     var body: some View {
         HStack(spacing: 0) {
             List {
                 Section(header: Text("Участники попоя")) {
-                    ForEach(payers, id: \.id) { item in
+                    ForEach(payersModel.payers, id: \.id) { item in
                         Text(item.name)
                     }
                             .listStyle(.sidebar)
-                    Button(action: {}) {
+                    Button(action: {
+                        self.showAddPayerModal = true
+                    }) {
                         Text("Добавить")
                     }
+                            .sheet(isPresented: self.$showAddPayerModal) {
+                                Text("Скоро все будет")
+//                                payersModel.payers.append(Payer(id: 1, name: "Вован"))
+                            }
                 }
             }
             List {
@@ -27,12 +41,21 @@ struct ContentView: View {
                         OutcomeView(outcome: item, payers: payers)
                     }
                             .listStyle(.sidebar)
-                    Button(action: {}) {
+                    Button(action: {
+                        self.showAddOutcomeModal = true
+                    }) {
                         Text("Добавить")
                     }
+                            .sheet(isPresented: self.$showAddOutcomeModal) {
+                                Text("Скоро все будет")
+//                                payersModel.payers.append(Payer(id: 1, name: "Вован"))
+                            }
                 }
             }
         }
+                .onAppear {
+                    payersModel.payers += payers
+                }
     }
 }
 
