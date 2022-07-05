@@ -21,7 +21,7 @@ struct ContentView: View {
             List {
                 Section(header: Text("Участники попоя")) {
                     ForEach(payersModel.payers, id: \.id) { item in
-                        Text(item.name)
+                        Text(item.lastName + " " + item.firstName)
                     }
                             .listStyle(.sidebar)
                     Button(action: {
@@ -31,7 +31,7 @@ struct ContentView: View {
                     }
                             .sheet(isPresented: self.$showAddPayerModal) {
                                 AddPayerModalView()
-//                                payersModel.payers.append(Payer(id: 1, name: "Вован"))
+                                        .environmentObject(payersModel)
                             }
                 }
             }
@@ -48,7 +48,6 @@ struct ContentView: View {
                     }
                             .sheet(isPresented: self.$showAddOutcomeModal) {
                                 AddOutcomeModalView()
-//                                payersModel.payers.append(Payer(id: 1, name: "Вован"))
                             }
                 }
             }

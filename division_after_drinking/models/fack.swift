@@ -8,11 +8,11 @@
 import Foundation
 
 var payers: [Payer] = [
-    Payer(id: 1, name: "Вован"),
-    Payer(id: 2, name: "Макс"),
-    Payer(id: 3, name: "Леха"),
-    Payer(id: 4, name: "Гоген"),
-    Payer(id: 5, name: "Катала"),
+    Payer(id: 1, firstName: "Вован", lastName: "", isDrinkAlcohol: false, isEatMeat: false),
+    Payer(id: 2, firstName: "Макс", lastName: "", isDrinkAlcohol: false, isEatMeat: true),
+    Payer(id: 3, firstName: "Леха", lastName: "", isDrinkAlcohol: true, isEatMeat: false),
+    Payer(id: 4, firstName: "Гоген", lastName: "", isDrinkAlcohol: true, isEatMeat: true),
+    Payer(id: 5, firstName: "Катала", lastName: "", isDrinkAlcohol: true, isEatMeat: true),
 ]
 
 var outcomes: [Outcome] = [

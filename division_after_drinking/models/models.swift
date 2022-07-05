@@ -9,7 +9,10 @@ import Foundation
 
 struct Payer: Hashable, Codable {
     var id: Int
-    var name: String
+    var firstName: String
+    var lastName: String
+    var isDrinkAlcohol: Bool
+    var isEatMeat: Bool
 }
 
 struct Outcome: Hashable, Codable {
@@ -24,7 +27,7 @@ struct Outcome: Hashable, Codable {
         if payerID != nil {
             for payer in payers {
                 if payer.id == payerID {
-                    return payer.name
+                    return payer.lastName + " " + payer.firstName
                 }
             }
         }

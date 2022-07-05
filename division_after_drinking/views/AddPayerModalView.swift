@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AddPayerModalView: View {
+    @EnvironmentObject var payersModel: PayersModel
+
     @State var userFirstName: String = ""
     @State var userLastName: String = ""
     @State var isDrinkAlcohol: Bool = true
@@ -30,7 +32,15 @@ struct AddPayerModalView: View {
                 }
                 Section {
                     Button(action: {
-                        print("Perform an action here...")
+                        payersModel.payers.append(
+                                Payer(
+                                        id: payersModel.payers.count + 1,
+                                        firstName: userFirstName,
+                                        lastName: userLastName,
+                                        isDrinkAlcohol: isDrinkAlcohol,
+                                        isEatMeat: isEatMeat
+                                )
+                        )
                     }) {
                         Text("Добавить")
                     }
