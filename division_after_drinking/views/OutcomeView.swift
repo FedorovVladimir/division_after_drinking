@@ -16,7 +16,7 @@ struct OutcomeView: View {
             HStack(spacing: 0.0) {
                 Text(outcome.name)
                         .frame(
-                                width: geo.size.width - 100,
+                                width: geo.size.width - 200,
                                 alignment: .leading)
                         .padding(.vertical, 5)
                 let labelText = outcome.getLabelText(payers: payers)
@@ -31,6 +31,11 @@ struct OutcomeView: View {
                             .background(labelColor)
                             .cornerRadius(15)
                 }
+                Spacer()
+                Text(String(format: "%.2f", outcome.price/100))
+                        .frame(
+                                width: 70,
+                                alignment: .trailing)
             }
         }
     }

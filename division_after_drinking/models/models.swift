@@ -15,6 +15,7 @@ struct Payer: Hashable, Codable {
 struct Outcome: Hashable, Codable {
     var id: Int
     var name: String
+    var price: Float64
     var isAlcohol: Bool
     var isMeat: Bool
     var payerID: Int?
