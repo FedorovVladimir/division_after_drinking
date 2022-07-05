@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddPayerModalView: View {
     @EnvironmentObject var payersModel: PayersModel
+    @Environment(\.presentationMode) var presentationMode
 
     @State var userFirstName: String = ""
     @State var userLastName: String = ""
@@ -41,6 +42,7 @@ struct AddPayerModalView: View {
                                         isEatMeat: isEatMeat
                                 )
                         )
+                        self.presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("Добавить")
                     }

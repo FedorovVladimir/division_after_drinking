@@ -43,7 +43,7 @@ struct AddOutcomeModalView: View {
 
 struct AddOutcomeModalView_Previews: PreviewProvider {
     static var previews: some View {
-        AddPayerModalView()
+        AddOutcomeModalView()
                 .previewLayout(.fixed(width: 500, height: 500))
     }
 }
