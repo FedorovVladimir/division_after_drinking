@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE24533AA8823B72C79F3B24 /* AddOutcomeModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE245FF3E4B7A8065D112BFC /* AddOutcomeModalView.swift */; };
 		E7E7F1F22871ECC300401AD3 /* division_after_drinkingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F1F12871ECC300401AD3 /* division_after_drinkingApp.swift */; };
 		E7E7F1F42871ECC300401AD3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F1F32871ECC300401AD3 /* ContentView.swift */; };
 		E7E7F1F62871ECC400401AD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7E7F1F52871ECC400401AD3 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE245FF3E4B7A8065D112BFC /* AddOutcomeModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOutcomeModalView.swift; sourceTree = "<group>"; };
 		E7E7F1EE2871ECC300401AD3 /* division_after_drinking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = division_after_drinking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E7F1F12871ECC300401AD3 /* division_after_drinkingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = division_after_drinkingApp.swift; sourceTree = "<group>"; };
 		E7E7F1F32871ECC300401AD3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			children = (
 				E7E7F2052871FCE100401AD3 /* OutcomeView.swift */,
 				E7E7F20A2872104800401AD3 /* AddPayerModalView.swift */,
+				DE245FF3E4B7A8065D112BFC /* AddOutcomeModalView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				E7E7F20B2872104800401AD3 /* AddPayerModalView.swift in Sources */,
 				E7E7F2032871F25300401AD3 /* fack.swift in Sources */,
 				E7E7F2012871F00A00401AD3 /* models.swift in Sources */,
+				DE24533AA8823B72C79F3B24 /* AddOutcomeModalView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
