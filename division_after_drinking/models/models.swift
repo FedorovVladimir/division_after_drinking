@@ -28,7 +28,7 @@ struct Outcome: Hashable, Codable {
         if payerID != nil {
             for payer in payers {
                 if payer.id == payerID {
-                    var s = payer.lastName
+                    let s = payer.lastName
                     if s == "" {
                         return payer.firstName
                     }

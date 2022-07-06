@@ -12,6 +12,36 @@ class PayersModel: ObservableObject {
     @Published var outcomes: [Outcome] = []
 
     func calc() {
+        var alcoholSum = 0.0
+        var meatSum = 0.0
+        var otherSum = 0.0
+        outcomes.forEach { outcome in
+            if outcome.isAlcohol {
+                alcoholSum += outcome.price
+                return
+            }
+            if outcome.isMeat {
+                meatSum += outcome.price
+                return
+            }
+            otherSum += outcome.price
+        }
+        var alcoholPayerCount = 0
+        var meatPayerCount = 0
+        var otherPayerCount = 0
+        payers.forEach { payer in
+            if payer.isDrinkAlcohol {
+                alcoholPayerCount += 1
+            }
+            if payer.isEatMeat {
+                meatPayerCount += 1
+            }
+            otherPayerCount += 1
+        }
+
+//        let oneOtherSum = otherSum / Float64(otherPayerCount)
+        payers[0].price = 100
+        // TODO
         print("calc")
     }
 }
