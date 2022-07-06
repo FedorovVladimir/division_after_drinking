@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct AddOutcomeModalView: View {
+    @EnvironmentObject var payersModel: PayersModel
+    @Environment(\.presentationMode) var presentationMode
+
     @State var name: String = ""
-    @State var price: String = "0"
+    @State var price: String = ""
     @State var isAlcohol: Bool = false
     @State var isMeat: Bool = false
 
@@ -19,6 +22,7 @@ struct AddOutcomeModalView: View {
                 Section(header: Text("Профиль")) {
                     TextField("Название", text: $name)
                     TextField("Стоимость", text: $price)
+                            .keyboardType(.numberPad)
                 }
                 Section(header: Text("Особености")) {
                     Toggle(isOn: $isAlcohol) {
@@ -30,7 +34,17 @@ struct AddOutcomeModalView: View {
                 }
                 Section {
                     Button(action: {
-                        print("Perform an action here...")
+                        payersModel.outcomes.append(
+                                Outcome(
+                                        id: payersModel.outcomes.count + 1,
+                                        name: name,
+                                        price: (Float64(price) ?? 0) * 100,
+                                        isAlcohol: isAlcohol,
+                                        isMeat: isMeat
+                                )
+                        )
+                        payersModel.calc()
+                        presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("Добавить")
                     }

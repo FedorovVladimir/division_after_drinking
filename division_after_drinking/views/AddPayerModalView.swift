@@ -43,6 +43,7 @@ struct AddPayerModalView: View {
                                         price: 0
                                 )
                         )
+                        payersModel.calc()
                         presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("Добавить")

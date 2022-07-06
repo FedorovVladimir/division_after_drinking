@@ -10,6 +10,10 @@ import SwiftUI
 class PayersModel: ObservableObject {
     @Published var payers: [Payer] = []
     @Published var outcomes: [Outcome] = []
+
+    func calc() {
+        print("calc")
+    }
 }
 
 struct ContentView: View {
@@ -28,9 +32,10 @@ struct ContentView: View {
                                         for i in 0..<payersModel.payers.count {
                                             if payersModel.payers[i].id == item.id {
                                                 payersModel.payers.remove(at: i)
-                                                return
+                                                break
                                             }
                                         }
+                                        payersModel.calc()
                                     } label: {
                                         Label("Удалить", systemImage: "trash")
                                     }
@@ -59,9 +64,10 @@ struct ContentView: View {
                                         for i in 0..<payersModel.outcomes.count {
                                             if payersModel.outcomes[i].id == item.id {
                                                 payersModel.outcomes.remove(at: i)
-                                                return
+                                                break
                                             }
                                         }
+                                        payersModel.calc()
                                     } label: {
                                         Label("Удалить", systemImage: "trash")
                                     }
@@ -76,6 +82,7 @@ struct ContentView: View {
                     }
                             .sheet(isPresented: self.$showAddOutcomeModal) {
                                 AddOutcomeModalView()
+                                        .environmentObject(payersModel)
                             }
                 }
             }
@@ -83,6 +90,7 @@ struct ContentView: View {
                 .onAppear {
                     payersModel.payers += payers
                     payersModel.outcomes += outcomes
+                    payersModel.calc()
                 }
     }
 }
