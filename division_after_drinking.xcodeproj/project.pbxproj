@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DE24533AA8823B72C79F3B24 /* AddOutcomeModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE245FF3E4B7A8065D112BFC /* AddOutcomeModalView.swift */; };
+		DE245FB112B86633B0BFF9D8 /* PayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE24548ECAB5C0BFC938A531 /* PayerView.swift */; };
 		E7E7F1F22871ECC300401AD3 /* division_after_drinkingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F1F12871ECC300401AD3 /* division_after_drinkingApp.swift */; };
 		E7E7F1F42871ECC300401AD3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F1F32871ECC300401AD3 /* ContentView.swift */; };
 		E7E7F1F62871ECC400401AD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7E7F1F52871ECC400401AD3 /* Assets.xcassets */; };
@@ -20,7 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE24548ECAB5C0BFC938A531 /* PayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayerView.swift; sourceTree = "<group>"; };
 		DE245FF3E4B7A8065D112BFC /* AddOutcomeModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOutcomeModalView.swift; sourceTree = "<group>"; };
+		E7569C4328760CC500E991A0 /* division_after_drinking.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = division_after_drinking.entitlements; sourceTree = "<group>"; };
 		E7E7F1EE2871ECC300401AD3 /* division_after_drinking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = division_after_drinking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E7F1F12871ECC300401AD3 /* division_after_drinkingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = division_after_drinkingApp.swift; sourceTree = "<group>"; };
 		E7E7F1F32871ECC300401AD3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 		E7E7F1F02871ECC300401AD3 /* division_after_drinking */ = {
 			isa = PBXGroup;
 			children = (
+				E7569C4328760CC500E991A0 /* division_after_drinking.entitlements */,
 				E7E7F2072871FF0A00401AD3 /* extentions */,
 				E7E7F2042871FCD200401AD3 /* views */,
 				E7E7F1FF2871EFB500401AD3 /* models */,
@@ -97,6 +101,7 @@
 				E7E7F2052871FCE100401AD3 /* OutcomeView.swift */,
 				E7E7F20A2872104800401AD3 /* AddPayerModalView.swift */,
 				DE245FF3E4B7A8065D112BFC /* AddOutcomeModalView.swift */,
+				DE24548ECAB5C0BFC938A531 /* PayerView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 				E7E7F2032871F25300401AD3 /* fack.swift in Sources */,
 				E7E7F2012871F00A00401AD3 /* models.swift in Sources */,
 				DE24533AA8823B72C79F3B24 /* AddOutcomeModalView.swift in Sources */,
+				DE245FB112B86633B0BFF9D8 /* PayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +319,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = division_after_drinking/division_after_drinking.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"division_after_drinking/Preview Content\"";
@@ -322,7 +329,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -331,6 +339,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "crab.division-after-drinking";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -343,6 +352,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = division_after_drinking/division_after_drinking.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"division_after_drinking/Preview Content\"";
@@ -352,7 +362,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -361,6 +372,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "crab.division-after-drinking";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;

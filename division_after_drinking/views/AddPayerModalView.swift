@@ -39,10 +39,11 @@ struct AddPayerModalView: View {
                                         firstName: userFirstName,
                                         lastName: userLastName,
                                         isDrinkAlcohol: isDrinkAlcohol,
-                                        isEatMeat: isEatMeat
+                                        isEatMeat: isEatMeat,
+                                        price: 0
                                 )
                         )
-                        self.presentationMode.wrappedValue.dismiss()
+                        presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("Добавить")
                     }

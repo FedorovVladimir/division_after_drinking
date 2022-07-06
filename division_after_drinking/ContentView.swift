@@ -21,7 +21,7 @@ struct ContentView: View {
             List {
                 Section(header: Text("Участники попоя")) {
                     ForEach(payersModel.payers, id: \.id) { item in
-                        Text(item.lastName + " " + item.firstName)
+                        PayerView(payer: item)
                     }
                             .listStyle(.sidebar)
                     Button(action: {
@@ -35,6 +35,7 @@ struct ContentView: View {
                             }
                 }
             }
+            .frame(height: .infinity)
             List {
                 Section(header: Text("Чек")) {
                     ForEach(outcomes, id: \.id) { item in
