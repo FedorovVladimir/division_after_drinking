@@ -22,6 +22,19 @@ struct ContentView: View {
                 Section(header: Text("Участники попоя")) {
                     ForEach(payersModel.payers, id: \.id) { item in
                         PayerView(payer: item)
+                                .swipeActions {
+                                    Button {
+                                        for i in 0 ..< payersModel.payers.count {
+                                            if payersModel.payers[i].id == item.id {
+                                                payersModel.payers.remove(at: i)
+                                                return
+                                            }
+                                        }
+                                    } label: {
+                                        Label("Удалить", systemImage: "trash")
+                                    }
+                                            .tint(.red)
+                                }
                     }
                             .listStyle(.sidebar)
                     Button(action: {
@@ -35,7 +48,7 @@ struct ContentView: View {
                             }
                 }
             }
-            .frame(height: .infinity)
+                    .frame(height: .infinity)
             List {
                 Section(header: Text("Чек")) {
                     ForEach(outcomes, id: \.id) { item in
