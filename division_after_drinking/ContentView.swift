@@ -9,6 +9,7 @@ import SwiftUI
 
 class PayersModel: ObservableObject {
     @Published var payers: [Payer] = []
+    @Published var outcomes: [Outcome] = []
 }
 
 struct ContentView: View {
@@ -24,7 +25,7 @@ struct ContentView: View {
                         PayerView(payer: item)
                                 .swipeActions {
                                     Button {
-                                        for i in 0 ..< payersModel.payers.count {
+                                        for i in 0..<payersModel.payers.count {
                                             if payersModel.payers[i].id == item.id {
                                                 payersModel.payers.remove(at: i)
                                                 return
@@ -51,8 +52,21 @@ struct ContentView: View {
                     .frame(height: .infinity)
             List {
                 Section(header: Text("Чек")) {
-                    ForEach(outcomes, id: \.id) { item in
+                    ForEach(payersModel.outcomes, id: \.id) { item in
                         OutcomeView(outcome: item, payers: payers)
+                                .swipeActions {
+                                    Button {
+                                        for i in 0..<payersModel.outcomes.count {
+                                            if payersModel.outcomes[i].id == item.id {
+                                                payersModel.outcomes.remove(at: i)
+                                                return
+                                            }
+                                        }
+                                    } label: {
+                                        Label("Удалить", systemImage: "trash")
+                                    }
+                                            .tint(.red)
+                                }
                     }
                             .listStyle(.sidebar)
                     Button(action: {
@@ -68,6 +82,7 @@ struct ContentView: View {
         }
                 .onAppear {
                     payersModel.payers += payers
+                    payersModel.outcomes += outcomes
                 }
     }
 }
