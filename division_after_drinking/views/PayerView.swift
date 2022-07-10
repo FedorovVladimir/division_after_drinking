@@ -42,9 +42,9 @@ struct PayerView: View {
 struct PayerView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            PayerView(payer: payers[0])
-            PayerView(payer: payers[1])
-            PayerView(payer: payers[2])
+            PayerView(payer: fakePayers[0])
+            PayerView(payer: fakePayers[1])
+            PayerView(payer: fakePayers[2])
         }
                 .previewLayout(.fixed(width: 400, height: 70))
     }

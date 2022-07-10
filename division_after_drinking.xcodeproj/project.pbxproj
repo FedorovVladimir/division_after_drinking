@@ -16,7 +16,7 @@
 		E7E7F1F62871ECC400401AD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7E7F1F52871ECC400401AD3 /* Assets.xcassets */; };
 		E7E7F1F92871ECC400401AD3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7E7F1F82871ECC400401AD3 /* Preview Assets.xcassets */; };
 		E7E7F2012871F00A00401AD3 /* models.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F2002871F00A00401AD3 /* models.swift */; };
-		E7E7F2032871F25300401AD3 /* fack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F2022871F25300401AD3 /* fack.swift */; };
+		E7E7F2032871F25300401AD3 /* fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F2022871F25300401AD3 /* fake.swift */; };
 		E7E7F2062871FCE100401AD3 /* OutcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F2052871FCE100401AD3 /* OutcomeView.swift */; };
 		E7E7F2092871FF1C00401AD3 /* + hex_color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F2082871FF1C00401AD3 /* + hex_color.swift */; };
 		E7E7F20B2872104800401AD3 /* AddPayerModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F20A2872104800401AD3 /* AddPayerModalView.swift */; };
@@ -45,7 +45,7 @@
 		E7E7F1F52871ECC400401AD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7E7F1F82871ECC400401AD3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E7E7F2002871F00A00401AD3 /* models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = models.swift; sourceTree = "<group>"; };
-		E7E7F2022871F25300401AD3 /* fack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fack.swift; sourceTree = "<group>"; };
+		E7E7F2022871F25300401AD3 /* fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fake.swift; sourceTree = "<group>"; };
 		E7E7F2052871FCE100401AD3 /* OutcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutcomeView.swift; sourceTree = "<group>"; };
 		E7E7F2082871FF1C00401AD3 /* + hex_color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+ hex_color.swift"; sourceTree = "<group>"; };
 		E7E7F20A2872104800401AD3 /* AddPayerModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPayerModalView.swift; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				E7E7F2002871F00A00401AD3 /* models.swift */,
-				E7E7F2022871F25300401AD3 /* fack.swift */,
+				E7E7F2022871F25300401AD3 /* fake.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -269,7 +269,7 @@
 				E7E7F1F22871ECC300401AD3 /* division_after_drinkingApp.swift in Sources */,
 				E7C568D5287AEE370086B47B /* calc.swift in Sources */,
 				E7E7F20B2872104800401AD3 /* AddPayerModalView.swift in Sources */,
-				E7E7F2032871F25300401AD3 /* fack.swift in Sources */,
+				E7E7F2032871F25300401AD3 /* fake.swift in Sources */,
 				E7E7F2012871F00A00401AD3 /* models.swift in Sources */,
 				DE24533AA8823B72C79F3B24 /* AddOutcomeModalView.swift in Sources */,
 				DE245FB112B86633B0BFF9D8 /* PayerView.swift in Sources */,

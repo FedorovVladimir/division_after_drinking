@@ -26,7 +26,7 @@ struct OutcomeView: View {
                         .background(labelColor)
                         .cornerRadius(15)
             }
-            Text(String(format: "%.2f", outcome.price / 100))
+            Text(String(format: "%.2f", Float64(outcome.price) / 100))
                     .frame(
                             width: 70,
                             alignment: .trailing)
@@ -37,9 +37,9 @@ struct OutcomeView: View {
 struct OutcomeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            OutcomeView(outcome: outcomes[0], payers: payers)
-            OutcomeView(outcome: outcomes[1], payers: payers)
-            OutcomeView(outcome: outcomes[2], payers: payers)
+            OutcomeView(outcome: fakeOutcomes[0], payers: fakePayers)
+            OutcomeView(outcome: fakeOutcomes[1], payers: fakePayers)
+            OutcomeView(outcome: fakeOutcomes[2], payers: fakePayers)
         }
                 .previewLayout(.fixed(width: 300, height: 100))
     }

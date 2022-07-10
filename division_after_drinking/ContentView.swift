@@ -16,7 +16,7 @@ class PayersModel: ObservableObject {
     @Published var data: Data = Data()
 
     func calc() {
-
+        data.payers = division_after_drinking.calc(data.outcomes, data.payers)
     }
 }
 
@@ -62,7 +62,7 @@ struct ContentView: View {
             List {
                 Section(header: Text("Чек")) {
                     ForEach(payersModel.data.outcomes, id: \.id) { item in
-                        OutcomeView(outcome: item, payers: payers)
+                        OutcomeView(outcome: item, payers: payersModel.data.payers)
                                 .swipeActions {
                                     Button {
                                         for i in 0..<payersModel.data.outcomes.count {
@@ -92,8 +92,8 @@ struct ContentView: View {
             }
         }
                 .onAppear {
-                    payersModel.data.payers += payers
-                    payersModel.data.outcomes += outcomes
+                    payersModel.data.payers += fakePayers
+                    payersModel.data.outcomes += fakeOutcomes
                     payersModel.calc()
                 }
     }
