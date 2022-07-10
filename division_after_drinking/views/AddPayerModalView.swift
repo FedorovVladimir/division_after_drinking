@@ -33,9 +33,9 @@ struct AddPayerModalView: View {
                 }
                 Section {
                     Button(action: {
-                        payersModel.payers.append(
+                        payersModel.data.payers.append(
                                 Payer(
-                                        id: payersModel.payers.count + 1,
+                                        id: payersModel.data.payers.count + 1,
                                         firstName: userFirstName,
                                         lastName: userLastName,
                                         isDrinkAlcohol: isDrinkAlcohol,

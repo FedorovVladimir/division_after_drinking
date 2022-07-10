@@ -34,9 +34,9 @@ struct AddOutcomeModalView: View {
                 }
                 Section {
                     Button(action: {
-                        payersModel.outcomes.append(
+                        payersModel.data.outcomes.append(
                                 Outcome(
-                                        id: payersModel.outcomes.count + 1,
+                                        id: payersModel.data.outcomes.count + 1,
                                         name: name,
                                         price: (Float64(price) ?? 0) * 100,
                                         isAlcohol: isAlcohol,

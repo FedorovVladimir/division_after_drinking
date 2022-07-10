@@ -31,7 +31,7 @@ struct PayerView: View {
                         .background(.green)
                         .cornerRadius(15)
             }
-            Text(String(format: "%.2f", payer.price / 100))
+            Text(String(format: "%.2f", Float64(payer.price) / 100))
                     .frame(
                             width: 70,
                             alignment: .trailing)

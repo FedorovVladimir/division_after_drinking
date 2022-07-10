@@ -7,15 +7,19 @@
 
 import SwiftUI
 
+struct Data {
+    var payers: [Payer] = []
+    var outcomes: [Outcome] = []
+}
+
 class PayersModel: ObservableObject {
-    @Published var payers: [Payer] = []
-    @Published var outcomes: [Outcome] = []
+    @Published var data: Data = Data()
 
     func calc() {
         var alcoholSum = 0.0
         var meatSum = 0.0
         var otherSum = 0.0
-        outcomes.forEach { outcome in
+        data.outcomes.forEach { outcome in
             if outcome.isAlcohol {
                 alcoholSum += outcome.price
                 return
@@ -29,7 +33,7 @@ class PayersModel: ObservableObject {
         var alcoholPayerCount = 0
         var meatPayerCount = 0
         var otherPayerCount = 0
-        payers.forEach { payer in
+        data.payers.forEach { payer in
             if payer.isDrinkAlcohol {
                 alcoholPayerCount += 1
             }
@@ -39,10 +43,11 @@ class PayersModel: ObservableObject {
             otherPayerCount += 1
         }
 
-//        let oneOtherSum = otherSum / Float64(otherPayerCount)
-        payers[0].price = 100
-        // TODO
-        print("calc")
+        let oneOtherSum = otherSum / Float64(otherPayerCount)
+        for i in 0..<data.payers.count {
+            data.payers[i].price = Int(oneOtherSum)
+        }
+        print("calc", Int(oneOtherSum))
     }
 }
 
@@ -55,13 +60,13 @@ struct ContentView: View {
         HStack(spacing: 0) {
             List {
                 Section(header: Text("Участники попоя")) {
-                    ForEach(payersModel.payers, id: \.id) { item in
+                    ForEach(payersModel.data.payers, id: \.id) { item in
                         PayerView(payer: item)
                                 .swipeActions {
                                     Button {
-                                        for i in 0..<payersModel.payers.count {
-                                            if payersModel.payers[i].id == item.id {
-                                                payersModel.payers.remove(at: i)
+                                        for i in 0..<payersModel.data.payers.count {
+                                            if payersModel.data.payers[i].id == item.id {
+                                                payersModel.data.payers.remove(at: i)
                                                 break
                                             }
                                         }
@@ -87,13 +92,13 @@ struct ContentView: View {
                     .frame(height: .infinity)
             List {
                 Section(header: Text("Чек")) {
-                    ForEach(payersModel.outcomes, id: \.id) { item in
+                    ForEach(payersModel.data.outcomes, id: \.id) { item in
                         OutcomeView(outcome: item, payers: payers)
                                 .swipeActions {
                                     Button {
-                                        for i in 0..<payersModel.outcomes.count {
-                                            if payersModel.outcomes[i].id == item.id {
-                                                payersModel.outcomes.remove(at: i)
+                                        for i in 0..<payersModel.data.outcomes.count {
+                                            if payersModel.data.outcomes[i].id == item.id {
+                                                payersModel.data.outcomes.remove(at: i)
                                                 break
                                             }
                                         }
@@ -118,8 +123,8 @@ struct ContentView: View {
             }
         }
                 .onAppear {
-                    payersModel.payers += payers
-                    payersModel.outcomes += outcomes
+                    payersModel.data.payers += payers
+                    payersModel.data.outcomes += outcomes
                     payersModel.calc()
                 }
     }
