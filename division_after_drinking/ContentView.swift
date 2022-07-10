@@ -10,6 +10,9 @@ import SwiftUI
 struct Data {
     var payers: [Payer] = []
     var outcomes: [Outcome] = []
+
+    var outcomesSum: Int = 0
+    var payersSum: Int = 0
 }
 
 class PayersModel: ObservableObject {
@@ -17,6 +20,8 @@ class PayersModel: ObservableObject {
 
     func calc() {
         data.payers = division_after_drinking.calc(data.outcomes, data.payers)
+        data.payersSum = division_after_drinking.calcAllSumPayers(data.payers)
+        data.outcomesSum = division_after_drinking.calcAllSumOutcomes(data.outcomes)
     }
 }
 
@@ -50,7 +55,11 @@ struct ContentView: View {
                     Button(action: {
                         self.showAddPayerModal = true
                     }) {
-                        Text("Добавить")
+                        HStack {
+                            Text("Добавить")
+                            Spacer()
+                            Text(String(format: "%.2f", Float64(payersModel.data.payersSum) / 100))
+                        }
                     }
                             .sheet(isPresented: self.$showAddPayerModal) {
                                 AddPayerModalView()
@@ -82,7 +91,11 @@ struct ContentView: View {
                     Button(action: {
                         self.showAddOutcomeModal = true
                     }) {
-                        Text("Добавить")
+                        HStack {
+                            Text("Добавить")
+                            Spacer()
+                            Text(String(format: "%.2f", Float64(payersModel.data.outcomesSum) / 100))
+                        }
                     }
                             .sheet(isPresented: self.$showAddOutcomeModal) {
                                 AddOutcomeModalView()
