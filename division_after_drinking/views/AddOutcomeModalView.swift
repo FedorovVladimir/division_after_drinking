@@ -38,9 +38,10 @@ struct AddOutcomeModalView: View {
                                 Outcome(
                                         id: payersModel.data.outcomes.count + 1,
                                         name: name,
-                                        price: (Float64(price) ?? 0) * 100,
+                                        price: Int((Float64(price) ?? 0) * 100),
                                         isAlcohol: isAlcohol,
-                                        isMeat: isMeat
+                                        isMeat: isMeat,
+                                        payerID: nil
                                 )
                         )
                         payersModel.calc()

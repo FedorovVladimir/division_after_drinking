@@ -7,22 +7,40 @@
 
 import Foundation
 
-struct Payer: Hashable, Codable {
+public struct Payer: Hashable, Codable {
     var id: Int
     var firstName: String
     var lastName: String
     var isDrinkAlcohol: Bool
     var isEatMeat: Bool
     var price: Int
+
+    public init(id: Int, firstName: String, lastName: String, isDrinkAlcohol: Bool, isEatMeat: Bool, price: Int) {
+        self.id = id
+        self.firstName = firstName
+        self.lastName = lastName
+        self.isDrinkAlcohol = isDrinkAlcohol
+        self.isEatMeat = isEatMeat
+        self.price = price
+    }
 }
 
-struct Outcome: Hashable, Codable {
+public struct Outcome: Hashable, Codable {
     var id: Int
     var name: String
-    var price: Float64
+    var price: Int
     var isAlcohol: Bool
     var isMeat: Bool
     var payerID: Int?
+
+    public init(id: Int, name: String, price: Int, isAlcohol: Bool, isMeat: Bool, payerID: Int?) {
+        self.id = id
+        self.name = name
+        self.price = price
+        self.isAlcohol = isAlcohol
+        self.isMeat = isMeat
+        self.payerID = payerID
+    }
 
     func getLabelText(payers: [Payer]) -> String {
         if payerID != nil {
