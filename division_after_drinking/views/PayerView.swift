@@ -12,7 +12,7 @@ struct PayerView: View {
 
     var body: some View {
         HStack(spacing: 10.0) {
-            Text(payer.lastName + " " + payer.firstName)
+            Text(payer.getName())
                     .padding(.vertical, 5)
             Spacer()
             if (!payer.isDrinkAlcohol) {

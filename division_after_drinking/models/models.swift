@@ -23,6 +23,13 @@ public struct Payer: Hashable, Codable {
         self.isEatMeat = isEatMeat
         self.price = price
     }
+
+    func getName() -> String {
+        if lastName.isEmpty {
+            return firstName
+        }
+        return lastName + " " + firstName
+    }
 }
 
 public struct Outcome: Hashable, Codable {
@@ -46,11 +53,7 @@ public struct Outcome: Hashable, Codable {
         if payerID != nil {
             for payer in payers {
                 if payer.id == payerID {
-                    let s = payer.lastName
-                    if s == "" {
-                        return payer.firstName
-                    }
-                    return payer.lastName + " " + payer.firstName
+                    return payer.getName()
                 }
             }
         }
