@@ -45,4 +45,68 @@ class division_after_drinkingTests: XCTestCase {
         let allSum = calcAllSumPayers(payers)
         XCTAssertEqual(allSum, 10000)
     }
+
+    func testOneOutcomeOnePayer() throws {
+        let outcomes: [Outcome] = [
+            Outcome(id: 1, name: "Пиво", price: 10000, isAlcohol: false, isMeat: false, payerID: nil),
+        ]
+        var payers: [Payer] = [
+            Payer(id: 1, firstName: "name 1", lastName: "", isDrinkAlcohol: false, isEatMeat: false, price: 0),
+        ]
+        payers = calc(outcomes, payers)
+        XCTAssertEqual(payers[0].price, 10000)
+    }
+
+    func testOneOutcomeTwoPayer() throws {
+        let outcomes: [Outcome] = [
+            Outcome(id: 1, name: "Пиво", price: 10000, isAlcohol: false, isMeat: false, payerID: nil),
+        ]
+        var payers: [Payer] = [
+            Payer(id: 1, firstName: "name 1", lastName: "", isDrinkAlcohol: false, isEatMeat: false, price: 0),
+            Payer(id: 2, firstName: "name 1", lastName: "", isDrinkAlcohol: false, isEatMeat: false, price: 0),
+        ]
+        payers = calc(outcomes, payers)
+        XCTAssertEqual(payers[0].price, 5000)
+        XCTAssertEqual(payers[1].price, 5000)
+    }
+
+    func testTwoOutcomeOnePayer() throws {
+        let outcomes: [Outcome] = [
+            Outcome(id: 1, name: "Пиво", price: 10000, isAlcohol: false, isMeat: false, payerID: nil),
+            Outcome(id: 2, name: "Пиво", price: 10000, isAlcohol: false, isMeat: false, payerID: nil),
+        ]
+        var payers: [Payer] = [
+            Payer(id: 1, firstName: "name 1", lastName: "", isDrinkAlcohol: false, isEatMeat: false, price: 0),
+        ]
+        payers = calc(outcomes, payers)
+        XCTAssertEqual(payers[0].price, 20000)
+    }
+
+    func testAlcohol() throws {
+        let outcomes: [Outcome] = [
+            Outcome(id: 1, name: "Пиво", price: 10000, isAlcohol: true, isMeat: false, payerID: nil),
+            Outcome(id: 2, name: "Чипсы", price: 10000, isAlcohol: false, isMeat: false, payerID: nil),
+        ]
+        var payers: [Payer] = [
+            Payer(id: 1, firstName: "name 1", lastName: "", isDrinkAlcohol: true, isEatMeat: false, price: 0),
+            Payer(id: 2, firstName: "name 1", lastName: "", isDrinkAlcohol: false, isEatMeat: false, price: 0),
+        ]
+        payers = calc(outcomes, payers)
+        XCTAssertEqual(payers[0].price, 15000)
+        XCTAssertEqual(payers[1].price, 5000)
+    }
+
+    func testMeat() throws {
+        let outcomes: [Outcome] = [
+            Outcome(id: 1, name: "Шашлык", price: 10000, isAlcohol: false, isMeat: true, payerID: nil),
+            Outcome(id: 2, name: "Чипсы", price: 10000, isAlcohol: false, isMeat: false, payerID: nil),
+        ]
+        var payers: [Payer] = [
+            Payer(id: 1, firstName: "name 1", lastName: "", isDrinkAlcohol: false, isEatMeat: true, price: 0),
+            Payer(id: 2, firstName: "name 1", lastName: "", isDrinkAlcohol: false, isEatMeat: false, price: 0),
+        ]
+        payers = calc(outcomes, payers)
+        XCTAssertEqual(payers[0].price, 15000)
+        XCTAssertEqual(payers[1].price, 5000)
+    }
 }

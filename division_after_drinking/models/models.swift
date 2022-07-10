@@ -13,7 +13,7 @@ public struct Payer: Hashable, Codable {
     var lastName: String
     var isDrinkAlcohol: Bool
     var isEatMeat: Bool
-    var price: Int
+    public var price: Int
 
     public init(id: Int, firstName: String, lastName: String, isDrinkAlcohol: Bool, isEatMeat: Bool, price: Int) {
         self.id = id
@@ -28,7 +28,7 @@ public struct Payer: Hashable, Codable {
 public struct Outcome: Hashable, Codable {
     var id: Int
     var name: String
-    var price: Int
+    public var price: Int
     var isAlcohol: Bool
     var isMeat: Bool
     var payerID: Int?
