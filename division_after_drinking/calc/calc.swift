@@ -47,6 +47,9 @@ public func calc(_ outcomes: [Outcome], _ payers: [Payer]) -> [Payer] {
     var outcomeAlcoholSum = 0
     var outcomeMeatSum = 0
     for i in 0..<outcomes.count {
+        if outcomes[i].payerID != nil {
+            continue
+        }
         if outcomes[i].isAlcohol {
             outcomeAlcoholSum += outcomes[i].price
             continue
@@ -77,5 +80,18 @@ public func calc(_ outcomes: [Outcome], _ payers: [Payer]) -> [Payer] {
             payers[i].price += oneItemMeatSum
         }
     }
+
+    for i in 0..<outcomes.count {
+        if outcomes[i].payerID == nil {
+            continue
+        }
+        for j in 0..<payersCount {
+            if payers[j].id == outcomes[i].payerID {
+                payers[j].price += outcomes[i].price
+                break
+            }
+        }
+    }
+
     return payers
 }

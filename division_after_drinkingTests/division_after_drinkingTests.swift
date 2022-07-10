@@ -109,4 +109,18 @@ class division_after_drinkingTests: XCTestCase {
         XCTAssertEqual(payers[0].price, 15000)
         XCTAssertEqual(payers[1].price, 5000)
     }
+
+    func testUserOutcome() throws {
+        let outcomes: [Outcome] = [
+            Outcome(id: 1, name: "Шашлык", price: 10000, isAlcohol: false, isMeat: false, payerID: nil),
+            Outcome(id: 2, name: "Цезарь", price: 10000, isAlcohol: false, isMeat: false, payerID: 1),
+        ]
+        var payers: [Payer] = [
+            Payer(id: 1, firstName: "name 1", lastName: "", isDrinkAlcohol: false, isEatMeat: false, price: 0),
+            Payer(id: 2, firstName: "name 1", lastName: "", isDrinkAlcohol: false, isEatMeat: false, price: 0),
+        ]
+        payers = calc(outcomes, payers)
+        XCTAssertEqual(payers[0].price, 15000)
+        XCTAssertEqual(payers[1].price, 5000)
+    }
 }
