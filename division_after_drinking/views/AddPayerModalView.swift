@@ -16,12 +16,19 @@ struct AddPayerModalView: View {
     @State var isDrinkAlcohol: Bool = true
     @State var isEatMeat: Bool = true
 
+    @State var usernameValid = FieldChecker()
+
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Профиль")) {
-                    TextField("Фамилия", text: $userFirstName)
-                    TextField("Имя", text: $userLastName)
+                    TextField("Фамилия", text: $userLastName)
+                    TextFieldWithValidator(title: "Имя", value: $userFirstName, checker: $usernameValid) { v in
+                        if (v.isEmpty) {
+                            return "Имя не может быть пустым"
+                        }
+                        return nil
+                    }
                 }
                 Section(header: Text("Предпочтения")) {
                     Toggle(isOn: $isDrinkAlcohol) {
@@ -33,6 +40,9 @@ struct AddPayerModalView: View {
                 }
                 Section {
                     Button(action: {
+                        if userFirstName == "" {
+                            return
+                        }
                         payersModel.data.payers.append(
                                 Payer(
                                         id: payersModel.data.payers.count + 1,
@@ -58,6 +68,6 @@ struct AddPayerModalView: View {
 struct AddPayerModalView_Previews: PreviewProvider {
     static var previews: some View {
         AddPayerModalView()
-                .previewLayout(.fixed(width: 500, height: 500))
+                .previewLayout(.fixed(width: 500, height: 600))
     }
 }
