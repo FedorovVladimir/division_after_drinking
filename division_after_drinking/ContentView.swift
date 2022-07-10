@@ -92,8 +92,8 @@ struct ContentView: View {
             }
         }
                 .onAppear {
-                    payersModel.data.payers += fakePayers
-                    payersModel.data.outcomes += fakeOutcomes
+//                    payersModel.data.payers += fakePayers
+//                    payersModel.data.outcomes += fakeOutcomes
                     payersModel.calc()
                 }
     }
