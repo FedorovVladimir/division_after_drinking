@@ -61,7 +61,7 @@ struct AddPayerModalView: View {
                     }
                 }
             }
-                    .navigationBarTitle("Новый участник попоя")
+                    .navigationBarTitle("Новый участник попоя", displayMode: .inline)
         }
     }
 }

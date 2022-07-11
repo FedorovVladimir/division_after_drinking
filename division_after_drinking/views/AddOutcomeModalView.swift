@@ -84,7 +84,7 @@ struct AddOutcomeModalView: View {
                     }
                 }
             }
-                    .navigationBarTitle("Новая статья расходов")
+                    .navigationBarTitle("Новая статья расходов", displayMode: .inline)
         }
     }
 }

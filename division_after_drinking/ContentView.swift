@@ -32,6 +32,7 @@ struct ContentView: View {
     @StateObject var payersModel = PayersModel()
     @State private var showAddPayerModal: Bool = false
     @State private var showAddOutcomeModal: Bool = false
+    @State private var showInfo: Bool = false
 
     var body: some View {
         if UIDevice.current.userInterfaceIdiom == .phone {
@@ -44,6 +45,13 @@ struct ContentView: View {
                 }
                         .onAppear(perform: onAppearMainView)
                         .navigationBarTitle("Попил после попоя", displayMode: .inline)
+                        .navigationBarItems(trailing: Button("Инфо") {
+                            showInfo.toggle()
+                        }
+                                .sheet(isPresented: self.$showInfo) {
+                                    InfoView()
+                                }
+                        )
             }
         } else {
             HStack(spacing: 0) {
@@ -143,6 +151,23 @@ struct OutcomeSection: View {
                         AddOutcomeModalView()
                                 .environmentObject(payersModel)
                     }
+        }
+    }
+}
+
+struct InfoView: View {
+    var body: some View {
+        NavigationView {
+            VStack(alignment: .leading) {
+                Text("Приложение \"Попил после попоя\"")
+                Text("Разработчик 3CRABS")
+                Text("Добавьте участников")
+                Text("Добавьте чек")
+                Text("Пришлите список для оплаты участникам")
+                Text("Барнаул 2022")
+            }
+                    .frame(alignment: .leading)
+                    .navigationBarTitle("Информация", displayMode: .inline)
         }
     }
 }
