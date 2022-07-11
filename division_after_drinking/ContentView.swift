@@ -13,6 +13,9 @@ struct Data {
 
     var outcomesSum: Int = 0
     var payersSum: Int = 0
+
+    var seqPayers: Int = 1
+    var seqOutcomes: Int = 1
 }
 
 class PayersModel: ObservableObject {

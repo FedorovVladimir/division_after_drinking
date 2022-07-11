@@ -45,7 +45,7 @@ struct AddPayerModalView: View {
                         }
                         payersModel.data.payers.append(
                                 Payer(
-                                        id: payersModel.data.payers.count + 1,
+                                        id: payersModel.data.seqPayers,
                                         firstName: userFirstName,
                                         lastName: userLastName,
                                         isDrinkAlcohol: isDrinkAlcohol,
@@ -53,6 +53,7 @@ struct AddPayerModalView: View {
                                         price: 0
                                 )
                         )
+                        payersModel.data.seqPayers += 1
                         payersModel.calc()
                         presentationMode.wrappedValue.dismiss()
                     }) {

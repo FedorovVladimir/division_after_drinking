@@ -68,7 +68,7 @@ struct AddOutcomeModalView: View {
                         }
                         payersModel.data.outcomes.append(
                                 Outcome(
-                                        id: payersModel.data.outcomes.count + 1,
+                                        id: payersModel.data.seqOutcomes,
                                         name: name,
                                         price: Int((Float64(price) ?? 0) * 100),
                                         isAlcohol: isAlcohol,
@@ -76,6 +76,7 @@ struct AddOutcomeModalView: View {
                                         payerID: selectPayerID
                                 )
                         )
+                        payersModel.data.seqOutcomes += 1
                         payersModel.calc()
                         presentationMode.wrappedValue.dismiss()
                     }) {
