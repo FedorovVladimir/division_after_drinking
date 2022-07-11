@@ -35,13 +35,16 @@ struct ContentView: View {
 
     var body: some View {
         if UIDevice.current.userInterfaceIdiom == .phone {
-            VStack(spacing: 0) {
-                List {
-                    PayerSection(payersModel: payersModel)
-                    OutcomeSection(payersModel: payersModel)
+            NavigationView {
+                VStack(spacing: 0) {
+                    List {
+                        PayerSection(payersModel: payersModel)
+                        OutcomeSection(payersModel: payersModel)
+                    }
                 }
+                        .onAppear(perform: onAppearMainView)
+                        .navigationBarTitle("Попил после попоя", displayMode: .inline)
             }
-                    .onAppear(perform: onAppearMainView)
         } else {
             HStack(spacing: 0) {
                 List {
