@@ -20,11 +20,11 @@ struct OutcomeView: View {
             let labelColor: Color = outcome.payerID != nil ? Color.yellow : Color.green
             if (labelText != "") {
                 Text(labelText)
-                        .foregroundColor(Color.black)
+                    .foregroundColor(Color.init("90000000"))
                         .padding(.vertical, 2)
                         .padding(.horizontal, 10)
                         .background(labelColor)
-                        .cornerRadius(15)
+                        .clipShape(Capsule())
             }
             Text(String(format: "%.2f", Float64(outcome.price) / 100))
                     .frame(

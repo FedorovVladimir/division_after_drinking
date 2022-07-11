@@ -17,19 +17,19 @@ struct PayerView: View {
             Spacer()
             if (!payer.isDrinkAlcohol) {
                 Text("Не пьет")
-                        .foregroundColor(Color.black)
+                        .foregroundColor(Color.init("90000000"))
                         .padding(.vertical, 2)
                         .padding(.horizontal, 10)
                         .background(.green)
-                        .cornerRadius(15)
+                        .clipShape(Capsule())
             }
             if (!payer.isEatMeat) {
                 Text("Не ест мясо")
-                        .foregroundColor(Color.black)
+                        .foregroundColor(Color.init("90000000"))
                         .padding(.vertical, 2)
                         .padding(.horizontal, 10)
                         .background(.green)
-                        .cornerRadius(15)
+                        .clipShape(Capsule())
             }
             Text(String(format: "%.2f", Float64(payer.price) / 100))
                     .frame(
