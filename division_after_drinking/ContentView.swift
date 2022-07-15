@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Data {
+struct Data: Codable {
     var payers: [Payer] = []
     var outcomes: [Outcome] = []
 
@@ -19,7 +19,22 @@ struct Data {
 }
 
 class PayersModel: ObservableObject {
-    @Published var data: Data = Data()
+    @Published var data: Data = Data() {
+        didSet {
+            if let d = try? JSONEncoder().encode(data) {
+                UserDefaults.standard.set(d, forKey: "data")
+            }
+        }
+    }
+
+    init() {
+        if let str = UserDefaults.standard.data(forKey: "data") {
+            if let d = try? JSONDecoder().decode(Data.self, from: str) {
+                data = d
+                return
+            }
+        }
+    }
 
     func calc() {
         data.payers = division_after_drinking.calc(data.outcomes, data.payers)
